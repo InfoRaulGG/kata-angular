@@ -1,0 +1,33 @@
+.card {
+    width: 20%;
+    height: 32em;
+    margin: 1%;
+    float: left;
+}
+
+.card-actions {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 1em !important;
+}
+
+.dateLikeDiv span {
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+.dateLikeDiv .like-span {
+    position: relative;
+    top: -.5em;
+}
+
+.dateLikeDiv .like-icon,
+.dateLikeDiv .date-icon {
+    font-size: 1.3em;
+}
+
+.dateLikeDiv .date {
+    float: right;
+    position: relative;
+    top: .3em;
+}
