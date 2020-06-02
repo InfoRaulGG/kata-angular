@@ -10,6 +10,9 @@ import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { MatPaginatorIntl } from '@angular/material';
+import { CustomMatPaginatorIntl } from './shared/paginator-es';
+import { PaginatePipe } from './pipes/paginate.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,12 @@ import { HttpClient } from '@angular/common/http';
   exports: [
     MaterialModule,
   ],
-  providers: [HttpClient],
+  providers: [
+    {  provide: MatPaginatorIntl, 
+      useClass: CustomMatPaginatorIntl
+    }, 
+    HttpClient
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

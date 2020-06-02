@@ -4,6 +4,7 @@ import { ForoRoutingModule } from './foro-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PostService } from '../services/post.service';
 import { MaterialModule } from '../material/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,8 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     SharedModule,
     MaterialModule,
-    ForoRoutingModule
+    ForoRoutingModule,
+    FormsModule
   ]
  
 })

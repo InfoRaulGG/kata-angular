@@ -5,6 +5,8 @@ import { HomeForoComponent } from './home-foro/home-foro.component';
 import { SharedModule } from '../shared/shared.module';
 import { PostService } from '../services/post.service';
 import { MaterialModule } from '../material/material.module';
+import { PaginatePipe } from '../pipes/paginate.pipe';
+import { FormsModule } from '@angular/forms';
 
 const foroRoutes: Routes = [
   {
@@ -19,14 +21,15 @@ const foroRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeForoComponent],
+  declarations: [HomeForoComponent, PaginatePipe],
   imports: [
     CommonModule,
     SharedModule,
     MaterialModule,
+    FormsModule,
     RouterModule.forChild(foroRoutes)
   ],
   exports: [RouterModule],
-  providers: [PostService]
+  providers: [PostService, PaginatePipe]
 })
 export class ForoRoutingModule { }
