@@ -12,6 +12,8 @@ export class HomeForoComponent implements OnInit {
 
   constructor(private postService: PostService) { }
   items: Post[];
+  allItems: Post[];
+  noEncontrados: boolean;
 
   pageSizeOptions = [5, 10, 50];
   pageSize: number = 5;
@@ -20,17 +22,30 @@ export class HomeForoComponent implements OnInit {
   ngOnInit() {
     this.getAllPost();
   }
-   handlePage(e: PageEvent){
+
+  handleSearch(e: string) {
+    this.items = this.allItems.filter(value => value.title.includes(e) );
+    if(this.items.length === 0){
+      //mostrar panel de no encontrados.
+      this.noEncontrados = true;
+    }
+    else{
+      this.noEncontrados = false;
+    }
+  }
+
+
+   handlePage(e: PageEvent) {
 
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
 
    }
-  
-  getAllPost(){
+
+  getAllPost() {
     this.postService.getPosts().subscribe(response => {
-      this.items = response;
-      console.log(this.items);
+      this.allItems = response;
+      this.items = this.allItems;
     }, error => {
       console.log(error); 
     });

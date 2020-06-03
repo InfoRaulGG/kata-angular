@@ -8,10 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <mat-form-field>
-                <mat-icon matPrefix>search</mat-icon>
-                <input matInput type="Search" placeholder="Buscar" class="search-input">
-            </mat-form-field>
+            <app-search (search)="handleSearch($event)"></app-search>
         </div>
         <div class="col-6">
             <mat-paginator [length]="items.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="handlePage($event)">
@@ -23,6 +20,12 @@
 
     <hr>
     <div class="results">
+
+        <div *ngIf="noEncontrados" style="text-align: center;">
+            <h2>No es la llama que buscas!</h2>
+            <img src="../../../assets/img/llama.png" alt="">
+        </div>
+
         <mat-card class="card" *ngFor="let i of items | paginate:pageSize:pageNumber">
             <div class="dateLikeDiv row pl-1">
                 <div class="col-5">

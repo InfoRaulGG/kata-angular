@@ -6,7 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PostService } from '../services/post.service';
 import { MaterialModule } from '../material/material.module';
 import { PaginatePipe } from '../pipes/paginate.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const foroRoutes: Routes = [
   {
@@ -27,6 +27,7 @@ const foroRoutes: Routes = [
     SharedModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(foroRoutes)
   ],
   exports: [RouterModule],
